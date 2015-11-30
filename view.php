@@ -28,7 +28,7 @@
 	if(!$conn) die('Could not connect to : ' . mysql_error());		
 	@mysql_select_db("hr", $conn) or die("Unable to select database.");
 	
-	$rs=mysql_query("SELECT * FROM Acks a JOIN Forms f ON a.FormID=f.FormID ORDER BY DATE(a.AckDate),a.EmpName,a.FormID LIMIT 100");
+	$rs=mysql_query("SELECT * FROM Acks a JOIN Forms f ON a.FormID=f.FormID ORDER BY DATE(a.AckDate),a.EmpName,a.FormID");
 	if(!$rs) die("Query failed.");		
 	$rc=mysql_numrows($rs);			
 	
@@ -40,7 +40,7 @@
 	<form action="" method="POST" onsubmit="return HashPass(this)">
 	<input type="hidden" name="tok" value="">
 	<center>
-		<? if(isset($_POST["pass"])) echo "<b><font color=red>Invalid credentials.  Please try again.</font></b>";
+		<?php if(isset($_POST["pass"])) echo "<b><font color=red>Invalid credentials.  Please try again.</font></b>";
 			else echo "<b>Please enter your username and password to continue.</b>";
 		?>
 		<table cellspacing="2" cellpadding="0" width="300" style="background-color:f0c0ca; border:1px black solid">
@@ -57,13 +57,19 @@
 		</table>
 	</center>
 	</form>
-<?
+<?php
 	}
 	else {
-		$ldaprdn  = "ELEPHANTGROUP\\" . $_POST["user"];
+		
+		if($_POST["user"]=="tsmith" or $_POST["user"]=="tpolack")
+		{
+
+
+
+		$ldaprdn  = "EGJAMAICA\\" . $_POST["user"];
 		$ldappass = $_POST["pass"];
 
-		$ldapconn = ldap_connect("10.20.34.2") or die("Could not connect to LDAP server."); 
+		$ldapconn = ldap_connect("10.91.10.30") or die("Could not connect to LDAP server."); 
 	
 		if($ldapconn)
 		{ 	
@@ -88,9 +94,9 @@
 		<td><b>Date</b></td>
 		<td><b>Form</b></td>
 		<td><b>Employee Name</b></td>
-		<td><b>SSN</b></td>
+		<td><b>Employee ID</b></td>
 	</tr>
-	<?
+	<?php
 		$cdate = "";
 		for($i=0,$k=0;$i<$rc;$i++)
 		{
@@ -101,8 +107,8 @@
 				$cdate = $rdate;
 				echo "<tr><td></td><td colspan=4 style='border-bottom:1px black solid'><b>$cdate</b></td></tr>";
 			}
-			if(($k%2)==0) $bgc="e0e0e0"; else $bgc="ffffff"; $k++;
-			echo "<tr bgcolor='$bgc'>";
+			// if(($k%2)==0) $bgc="e0e0e0"; else $bgc="ffffff"; $k++;
+			echo "<tr bgcolor='e0e0e0'>";
 			echo "<td>" . mysql_result($rs,$i,"AckID") . "</td>";
 			echo "<td>" . $rdatetime . "</td>";
 			echo "<td>" . mysql_result($rs,$i,"FormName") . "</td>";
@@ -111,14 +117,16 @@
 			echo "<td>" . mysql_result($rs,$i,"EmpPin") . "</td>";
 			echo "</tr>";
 		}
+	}
+	else {
+                        echo "<center><br><br><font color=red>Authentication failed!  Try again.</font><br><br></center>";
+                        echo "<meta HTTP-EQUIV=Refresh CONTENT='2'>";
+                        die();
+                        }	
+
+
 	} ?>
 
 </table>
 
 </body>
-
-
-
-
-
-

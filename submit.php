@@ -4,7 +4,7 @@
 		table,tr,td,input,select,body,fieldset {font-family:verdana, Bitstream Vera Sans, sans serif; color:000000; font-size:11px;}
 	</style>
 	<script type="text/javascript">
-		function Redirect() {window.location = "http://www.saveologycentral.com/hr/Wiki%20Pages/CORPORATE%20POLICY%27S.aspx";}
+		function Redirect() {window.location = "http://www.saveologycentral.com/Human%20Resource%20FL/Wiki%20Pages/FLORIDA%20HUMAN%20RESOURCE.aspx";}
 	</script>
 </head>
 
@@ -45,13 +45,13 @@
 
 <br><br><br><br><br>
 <center>
-	<b>Thank you.</b>  Your acknowledgement that you have read and agreed to the <b><? echo $fname; ?></b> has been submitted.</b><br><br>
+	<b>Thank you.</b>  Your acknowledgement that you have read and agreed to the <b><?php echo $fname; ?></b> has been submitted.</b><br><br>
 	<br><br>
 	
 	
-	<img src="siteart/saveology.jpg">
+	<img src="siteart/qology.png">
 	<br><br><br><br>
-	You will be returned to SaveologyCentral in 5 seconds, or you may simply click <a href="http://www.saveologycentral.com/hr/Wiki%20Pages/CORPORATE%20POLICY%27S.aspx">here</a>.
+	You will be returned to SaveologyCentral in 5 seconds, or you may simply click <a href="http://www.saveologycentral.com/Human%20Resource%20FL/Wiki%20Pages/FLORIDA%20HUMAN%20RESOURCE.aspx">here</a>.
 </center>
 
 

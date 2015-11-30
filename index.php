@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<?
+<?php
 	if(!isset($_GET["fid"])) die('Invalid format.');
 	require_once("config.php");
 	$conn = mysql_connect($dbaddr, $dbuser, $dbpass);
@@ -43,12 +43,12 @@
 <br>
 
 <form action="submit.php" method="POST" onsubmit="return checkCheckBox(this)">
-	<input type="hidden" name="formid" value="<? echo $formid; ?>">
+	<input type="hidden" name="formid" value="<?php echo $formid; ?>">
 	<table border="0" cellpadding="1" cellspacing="0" width="100%" style="background-color:a0d0aa">
 		<tr><td colspan="4"><hr size=1 style="color:black"></td></tr>
 		<tr>
 			<td><b>Employee Name:</b> <input type="text" value="" name="empname" style="width:150px"></td>
-			<td><b>Last 4 of SSN:</b> <input type="password" value="" name="emppin" style="width:50px"></td>
+			<td><b>Employee ID:</b> <input type="password" value="" name="emppin" style="width:50px"></td>
 			<td align="right">
 				<b>I have read and accept the terms above:</b> <input type="checkbox" value="0" name="agree">
 			</td>

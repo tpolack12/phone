@@ -1,7 +1,7 @@
 <?php
 
-$dbaddr = "10.40.6.51";
-$dbuser = "sergei";
-$dbpass = "liN39qZ";
+$dbaddr = "127.0.0.1";
+$dbuser = "hracks";
+$dbpass = "sunshine2010";
 
 ?>
