@@ -1,0 +1,99 @@
+/*!
+ * Start Bootstrap - Logo Nav HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+.page {
+    overflow:hidden;
+}
+
+.menu {
+    height: 450px;
+    overflow:hidden;
+    #background:lightblue;
+}
+
+.display {
+   height: 450px;
+   overflow:hidden;
+   #background:lightblue;
+}
+
+.dir-search-results {
+    max-height: 300px;
+    overflow-y:scroll; 
+
+    #overflow: scroll;
+    #height: 300px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+	height: 64px;
+    }
+}
+
+#sidebar {
+  height: 100%;
+  padding-right: 0;
+  padding-top: 20px;
+}
+#sidebar .nav {
+  width: 95%;
+}
+#sidebar li {
+  border:0 #f2f2f2 solid;
+  border-bottom-width:1px;
+}
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -41.6%;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -41.6%;
+  }
+  .row-offcanvas-right.active {
+    right: 41.6%;
+  }
+  .row-offcanvas-left.active {
+    left: 41.6%;
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+  }
+  #sidebar {
+    padding-top:0;
+  }
+}
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+source ../../common/config.bash
+
+sshpass -p'1wh0r34m3' ssh root@${FLpbx} 'cat /etc/asterisk/sip.conf | grep  -e "callerid" | cut -d"=" -f2 | grep -v "Spy" | grep -v "Agent" | sort ' > Florida_dir.file
+sshpass -p'c0v3rt$$' ssh root@${JMpbx1} 'cat /etc/asterisk/sip-custom.conf | grep  -e "callerid" | cut -d"=" -f2 | grep -v "spy" | grep -v "Agent" | sort' > Jamaica_dir.file
+
+rm directory.csv
+ls *.file | while read line; do location=$(echo $line | cut -d"_" -f1); ./dircsv.php $line $location; done;
+
+mysql -u ${dbuser} -p${dbpass} -h${dbserver} voip -e "TRUNCATE TABLE Directory"
+
+mysql -u ${dbuser} -p${dbpass} -h${dbserver} voip -e "LOAD DATA LOCAL INFILE 'directory.csv'
+INTO TABLE Directory FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n'
+(Location,Caller_ID,Contact_NUM)";
